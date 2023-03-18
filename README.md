@@ -1,6 +1,7 @@
 https://github.com/azc5OQ/lemon-chat client.html uses libopusjs webassembly. <br>This webassembly is embedded in client.html as base64 string, to get rid of need of loading it externally using http.
 <br>
-This project can reproduce exact base64 string of that webassembly.
+<br>
+This project can reproduce exact base64 string that represents that webassembly.
 <br>
 This project can only be build on linux system with emscripten installed, but afterwards the resulting webassembly file can be used in almost all browsers.
 <br>

@@ -1,9 +1,13 @@
+# what is this project?
+
 https://github.com/azc5OQ/lemon-chat client.html uses libopusjs webassembly. <br>This webassembly is embedded in client.html as base64 string, to get rid of need of loading it externally using http.
 <br>
-<br>
+
 This project can reproduce exact base64 string that represents that webassembly.
 <br>
-This project can only be build on linux system with emscripten installed, but afterwards the resulting webassembly file can be used in almost all browsers.
+
+# how to build?
+This project can only be build on linux system with emscripten and make installed, but afterwards the resulting webassembly file can be used in almost all browsers.
 <br>
 This project already contains all needed dependencies in .zip file in this repository and all that needs to be done is typing "make".
 
@@ -25,4 +29,5 @@ result = base64.b64encode(file_content).decode('ascii')
 <br>
 print(repr(result)
 
-this base64 string can be compared with the string in https://github.com/azc5OQ/lemon-chat, to see if its the same (maybe it wont be, if different emscripten version is used), or this new base64string can replace the old one in https://github.com/azc5OQ/lemon-chat client.html.
+# what to do with result of this build?
+this base64 string can be compared with the string in https://github.com/azc5OQ/lemon-chat, to see if its the same (maybe it wont be, if different emscripten version is used), or if the new .wasm build is better, to replace the old base64 string with new one

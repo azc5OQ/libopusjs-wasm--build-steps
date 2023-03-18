@@ -30,4 +30,4 @@ result = base64.b64encode(file_content).decode('ascii')
 print(repr(result)
 
 # what to do with result of this build?
-this base64 string can be compared with the string in https://github.com/azc5OQ/lemon-chat, to see if its the same (maybe it wont be, if different emscripten version is used), or if the new .wasm build is better, to replace the old base64 string with new one
+resulting base64 string can be compared with the string already present in https://github.com/azc5OQ/lemon-chat, to see if its the same (maybe it wont be, if different emscripten version is used), or if the new build is better, to replace the old base64 string with new one

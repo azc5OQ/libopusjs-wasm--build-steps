@@ -9,7 +9,9 @@ This project already contains all needed dependencies in .zip file in this repos
 
 with correct build tools installed, the build should "just work". If it does not work, make file will complain that some builds are missing and after they are installed it will work.
 <br>
-After the build of the .wasm file is done, the base64 string, that represebts the contents of that .wasm file, can be produced for example by this python script. By reading its bytes and converting them to base64 string.
+
+After the build of the .wasm file is done, the base64 string, can be produced for example by this python script.
+By reading the bytes of the resulting .wasm file
 
 <br>
 import base64

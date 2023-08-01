@@ -1,33 +1,23 @@
-# what is this project?
+# what is purpose of this repository?
 
-https://github.com/azc5OQ/lemon-chat client.html uses libopusjs webassembly. <br>This webassembly is embedded in client.html as base64 string, to get rid of need of loading it externally using http.
+[https://github.com/azc5OQ/lemon-chat/client.html](https://raw.githubusercontent.com/azc5OQ/lemon-chat/master/client/client.html) has two webassembly files embedded in it, for audio functionality. <br> This repository contains steps on how to build one of these two webassembly files, specifically steps on how to build "libopusjs.wasm" file. (second file is called mp3-to-pcm.wasm and also has its own separate repository) <br> Both webassembly files are embedded inside client.html as base64 string, for simplicity, because I want the chat client to be single .html file. <br> <br> Because I want the chat to be open source project, I must provide clear way on how to build it completely, including webassembly files used in the chat client.
 <br>
-
-This project can reproduce exact base64 string that represents that webassembly.
+<br>
+In short, this github repository aims to provide simple way on how to build the "libopusjs.wasm" file from source.
 <br>
 
 # how to build?
-This project can only be build on linux system with emscripten and make installed, but afterwards the resulting webassembly file can be used in almost all browsers.
-<br>
-This project already contains all needed dependencies in .zip file in this repository and all that needs to be done is typing "make".
-
-with correct build tools installed, the build should "just work". If it does not work, make file will complain that some builds are missing and after they are installed it will work.
-<br>
-
-After the build of the .wasm file is done, the base64 string, can be produced for example by this python script.
-By reading the bytes of the resulting .wasm file
+Most convenient way to build this is to import virtual machine file (.ova ) to virtual box and run build process there. <br>
+The virtual machine already contains everything needed to build this project. (tools, environment variables, source code) <br>
+download here -> https://mega.nz/file/VuV23J7D#R-eaT6BZqi5Wkf-gnXR5AZCiWd61sNYTTKlp06ZF8EY <br>
+Result of build (libopusjs.wasm file) will appear in /dist directory <br>
 
 <br>
-import base64
-<br>
-file = open('/home/user/Desktop/libopusjs/dist/libopus.wasm', 'rb')
-<br>
-file_content = file.read()
+Alternatively, clone this repository and setup build tools manually (emscripten, make, ninja build)
 
-<br>
-result = base64.b64encode(file_content).decode('ascii')
-<br>
-print(repr(result)
 
 # what to do with result of this build?
-resulting base64 string can be compared with the string already present in https://github.com/azc5OQ/lemon-chat, to see if its the same (maybe it wont be, if different emscripten version is used), or if the new build is better, to replace the old base64 string with new one
+resulting .wasm file can be converted to base64 string and can be used to verify that the chat client is using same webassembly file
+
+# does the chat client really need .wasm?
+no, if you dont care about audio (speaking, streaming music), edit client.html, do CTRL+F and delete this webassembly files
